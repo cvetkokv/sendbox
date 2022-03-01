@@ -3,6 +3,7 @@ import { isNgTemplate, ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { User } from './_models/users';
 import { AccountService } from './_services/account.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,13 @@ import { AccountService } from './_services/account.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'DatingApp';
+  title = 'Sandbox';
   users : any;
 
-  constructor( private accountService: AccountService){}
+  constructor( private accountService: AccountService, private titleService:Title){}
 
   ngOnInit() {
+    this.titleService.setTitle("SendBox");
     this.setCurentUser();
   }
 

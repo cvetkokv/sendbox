@@ -17,6 +17,22 @@
     </div>
 </div>
 
-<div class="container mt-5" *ngIf="accountService.curentUser$ | async">
-    Zdravoo
+<div (load)=" reloadCurrentPage()" class="container mt-5" *ngIf="accountService.curentUser$ | async">
+    <h1>Vasa ToDO Lista</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Naziv</th>
+                
+                <th scope="col">Opcije</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of items">
+                <td>{{i.naziv}}</td>
+                <td><button class="btn btn-primary">obrisi</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary">Dodaj na listu</button>
 </div>
